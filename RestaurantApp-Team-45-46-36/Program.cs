@@ -63,18 +63,7 @@ internal class Program
     // คน B รับผิดชอบ
     static void ShowGoodRating()
     {
-        var shops = new[]
-        {
-            new { Name = "ครัวคุณแม่", Rating = 4.9 },
-            new { Name = "ซูชิโตเกียว", Rating = 4.8 },
-            new { Name = "ส้มตำนัว", Rating = 4.7 },
-            new { Name = "ข้าวมันไก่เจ๊หน่อย", Rating = 4.6 },
-            new { Name = "ก๋วยเตี๋ยวเรือ", Rating = 4.5 },
-            new { Name = "สเต๊กลุงหนวด", Rating = 4.5 },
-            new { Name = "ฟาสต์ฟู้ดมุมถนน", Rating = 3.8 }
-        };
-
-        foreach (var s in shops.Where(x => x.Rating >= 4.5))
+        foreach (var s in restaurants.Where(x => x.Rating >= 4.5))
             Console.WriteLine("{0} - {1:0.0} ดาว", s.Name, s.Rating);
     }
 
