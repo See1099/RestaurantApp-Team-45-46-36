@@ -16,9 +16,13 @@ internal class Program
 {
     static List<Restaurant> restaurants = new List<Restaurant>
     {
-        new Restaurant { Name = "Mcdonal", Type = "Fast Food", Rating = 4.2 },
-        new Restaurant { Name = "MK", Type = "Suki", Rating = 4.7 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
+            new Restaurant { Name = "ครัวคุณแม่", Rating = 4.9 },
+            new Restaurant { Name = "ซูชิโตเกียว", Rating = 4.8 },
+            new Restaurant { Name = "ส้มตำนัว", Rating = 4.7 },
+            new Restaurant{ Name = "ข้าวมันไก่เจ๊หน่อย", Rating = 4.6 },
+            new Restaurant{ Name = "ก๋วยเตี๋ยวเรือ", Rating = 4.5 },
+            new Restaurant{ Name = "สเต๊กลุงหนวด", Rating = 4.5 },
+            new Restaurant { Name = "ฟาสต์ฟู้ดมุมถนน", Rating = 3.8 }
     };
 
     static void Main(string[] args)
