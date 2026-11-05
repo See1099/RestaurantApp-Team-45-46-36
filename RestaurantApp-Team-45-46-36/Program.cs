@@ -16,9 +16,13 @@ internal class Program
 {
     static List<Restaurant> restaurants = new List<Restaurant>
     {
-        new Restaurant { Name = "Mcdonal", Type = "Fast Food", Rating = 4.2 },
-        new Restaurant { Name = "MK", Type = "Suki", Rating = 4.7 },
-        new Restaurant { Name = "Fuji", Type = "Japanese", Rating = 4.8 }
+        new Restaurant { Name = "ครัวคุณแม่", Rating = 4.9 },
+        new Restaurant { Name = "ซูชิโตเกียว", Rating = 4.8 },
+        new Restaurant { Name = "ส้มตำนัว", Rating = 4.7 },
+        new Restaurant{ Name = "ข้าวมันไก่เจ๊หน่อย", Rating = 4.6 },
+        new Restaurant{ Name = "ก๋วยเตี๋ยวเรือ", Rating = 4.5 },
+        new Restaurant{ Name = "สเต๊กลุงหนวด", Rating = 4.5 },
+        new Restaurant { Name = "ฟาสต์ฟู้ดมุมถนน", Rating = 3.8 }
     };
 
     static void Main(string[] args)
@@ -55,51 +59,12 @@ internal class Program
     }
 
     // คน A รับผิดชอบ
-    static void AddRestaurant()
+    static void ShowAllRestaurant()
     {
-        Console.WriteLine("\n--- Add Restaurant ---");
-
-        // รับชื่อร้าน
-        Console.Write("Name: ");
-        string name = Console.ReadLine()?.Trim();
-        if (string.IsNullOrEmpty(name))
+        for (int i = 0; i < restaurants.Count; i++)
         {
-            Console.WriteLine("Name cannot be empty.");
-            return;
+            Console.WriteLine(restaurants[i].Name);
         }
-
-        // กันชื่อซ้ำ (ไม่สนตัวพิมพ์เล็ก/ใหญ่)
-        if (restaurants.Any(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
-        {
-            Console.WriteLine("This restaurant already exists.");
-            return;
-        }
-
-        // รับประเภทร้าน
-        Console.Write("Type: ");
-        string type = Console.ReadLine()?.Trim();
-        if (string.IsNullOrEmpty(type))
-        {
-            Console.WriteLine("Type cannot be empty.");
-            return;
-        }
-
-        // รับเรตติ้ง (0 - 5)
-        Console.Write("Rating (0-5): ");
-        if (!double.TryParse(Console.ReadLine(), out double rating) || rating < 0 || rating > 5)
-        {
-            Console.WriteLine("Invalid rating. Please enter a number between 0 and 5.");
-            return;
-        }
-
-        restaurants.Add(new Restaurant
-        {
-            Name = name,
-            Type = type,
-            Rating = rating
-        });
-
-        Console.WriteLine($"Added '{name}' successfully.");
     }
 
     // คน B รับผิดชอบ
