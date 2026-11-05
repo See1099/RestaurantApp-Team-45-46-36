@@ -57,7 +57,49 @@ internal class Program
     // คน A รับผิดชอบ
     static void AddRestaurant()
     {
-        Console.WriteLine("Not completed");
+        Console.WriteLine("\n--- Add Restaurant ---");
+
+        // รับชื่อร้าน
+        Console.Write("Name: ");
+        string name = Console.ReadLine()?.Trim();
+        if (string.IsNullOrEmpty(name))
+        {
+            Console.WriteLine("Name cannot be empty.");
+            return;
+        }
+
+        // กันชื่อซ้ำ (ไม่สนตัวพิมพ์เล็ก/ใหญ่)
+        if (restaurants.Any(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+        {
+            Console.WriteLine("This restaurant already exists.");
+            return;
+        }
+
+        // รับประเภทร้าน
+        Console.Write("Type: ");
+        string type = Console.ReadLine()?.Trim();
+        if (string.IsNullOrEmpty(type))
+        {
+            Console.WriteLine("Type cannot be empty.");
+            return;
+        }
+
+        // รับเรตติ้ง (0 - 5)
+        Console.Write("Rating (0-5): ");
+        if (!double.TryParse(Console.ReadLine(), out double rating) || rating < 0 || rating > 5)
+        {
+            Console.WriteLine("Invalid rating. Please enter a number between 0 and 5.");
+            return;
+        }
+
+        restaurants.Add(new Restaurant
+        {
+            Name = name,
+            Type = type,
+            Rating = rating
+        });
+
+        Console.WriteLine($"Added '{name}' successfully.");
     }
 
     // คน B รับผิดชอบ
