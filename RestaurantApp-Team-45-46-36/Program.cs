@@ -16,13 +16,13 @@ internal class Program
 {
     static List<Restaurant> restaurants = new List<Restaurant>
     {
-            new Restaurant { Name = "ครัวคุณแม่", Rating = 4.9 },
-            new Restaurant { Name = "ซูชิโตเกียว", Rating = 4.8 },
-            new Restaurant { Name = "ส้มตำนัว", Rating = 4.7 },
-            new Restaurant{ Name = "ข้าวมันไก่เจ๊หน่อย", Rating = 4.6 },
-            new Restaurant{ Name = "ก๋วยเตี๋ยวเรือ", Rating = 4.5 },
-            new Restaurant{ Name = "สเต๊กลุงหนวด", Rating = 4.5 },
-            new Restaurant { Name = "ฟาสต์ฟู้ดมุมถนน", Rating = 3.8 }
+        new Restaurant { Name = "ครัวคุณแม่", Rating = 4.9 },
+        new Restaurant { Name = "ซูชิโตเกียว", Rating = 4.8 },
+        new Restaurant { Name = "ส้มตำนัว", Rating = 4.7 },
+        new Restaurant{ Name = "ข้าวมันไก่เจ๊หน่อย", Rating = 4.6 },
+        new Restaurant{ Name = "ก๋วยเตี๋ยวเรือ", Rating = 4.5 },
+        new Restaurant{ Name = "สเต๊กลุงหนวด", Rating = 4.5 },
+        new Restaurant { Name = "ฟาสต์ฟู้ดมุมถนน", Rating = 3.8 }
     };
 
     static void Main(string[] args)
@@ -61,7 +61,18 @@ internal class Program
     // คน A รับผิดชอบ
     static void AddRestaurant()
     {
-        Console.WriteLine("Not completed");
+        Console.Write("ชื่อร้าน: ");
+        string name = Console.ReadLine();
+
+        Console.Write("คะแนน (0-5): ");
+        double rating;
+        while (!double.TryParse(Console.ReadLine(), out rating) || rating < 0 || rating > 5)
+        {
+            Console.Write("กรุณากรอกตัวเลข 0-5: ");
+        }
+
+        restaurants.Add(new Restaurant { Name = name, Rating = rating });
+        Console.WriteLine("เพิ่มร้านเรียบร้อยแล้ว");
     }
 
     // คน B รับผิดชอบ
