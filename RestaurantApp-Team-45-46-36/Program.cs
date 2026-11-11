@@ -59,12 +59,20 @@ internal class Program
     }
 
     // คน A รับผิดชอบ
-    static void ShowAllRestaurant()
+    static void AddRestaurant()
     {
-        for (int i = 0; i < restaurants.Count; i++)
+        Console.Write("ชื่อร้าน: ");
+        string name = Console.ReadLine();
+
+        Console.Write("คะแนน (0-5): ");
+        double rating;
+        while (!double.TryParse(Console.ReadLine(), out rating) || rating < 0 || rating > 5)
         {
-            Console.WriteLine(restaurants[i].Name);
+            Console.Write("กรุณากรอกตัวเลข 0-5: ");
         }
+
+        restaurants.Add(new Restaurant { Name = name, Rating = rating });
+        Console.WriteLine("เพิ่มร้านเรียบร้อยแล้ว");
     }
 
     // คน B รับผิดชอบ
