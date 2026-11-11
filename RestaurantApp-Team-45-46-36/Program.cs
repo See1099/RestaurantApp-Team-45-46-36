@@ -67,7 +67,8 @@ internal class Program
     // คน B รับผิดชอบ
     static void ShowGoodRating()
     {
-        Console.WriteLine("Not completed");
+        foreach (var s in restaurants.Where(x => x.Rating >= 4.5))
+            Console.WriteLine("{0} - {1:0.0} ดาว", s.Name, s.Rating);
     }
 
     // คน C รับผิดชอบ
