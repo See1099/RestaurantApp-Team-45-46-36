@@ -76,6 +76,21 @@ internal class Program
     // คน C รับผิดชอบ
     static void ShowSummary()
     {
-        Console.WriteLine("Not completed");
+        Console.WriteLine("\n===== Summary =====");
+
+        if (restaurants.Count == 0)
+        {
+            Console.WriteLine("No restaurants yet.");
+            return;
+        }
+        Restaurant highest = restaurants.OrderByDescending(r => r.Rating).First();
+        Restaurant lowest = restaurants.OrderBy(r => r.Rating).First();
+
+        Console.WriteLine("Highest Rating:");
+        Console.WriteLine($"  {highest.Name} ({highest.Type}) - {highest.Rating:F1}");
+
+
+        Console.WriteLine("Lowest Rating:");
+        Console.WriteLine($"  {lowest.Name} ({lowest.Type}) - {lowest.Rating:F1}");
     }
 }
